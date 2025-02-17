@@ -1,0 +1,17 @@
+services:
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    tty: true
+    platform: linux/arm64/v8
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "jeerawat"
+      RABBITMQ_DEFAULT_PASS: "password"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      
+volumes:
+  rabbitmq_data:
+    driver: local
